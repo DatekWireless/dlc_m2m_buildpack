@@ -56,6 +56,7 @@ else
   echo "Downloading Java"
   curl -o OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
   ls -l
+  cat OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
   tar xzf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
   rm -f OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
   cd - || exit 1
