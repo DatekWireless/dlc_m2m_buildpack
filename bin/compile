@@ -41,10 +41,25 @@ ls -l /app/tmp/buildpacks
 echo Find java
 find / -name java
 
+echo "Cache:"
+ls -l "${CACHE_DIR}"
+
+if [ -d "${CACHE_DIR}/apache-maven-3.6.3" ] ; then
+  echo "Maven found"
+else
+  cd "${CACHE_DIR}" || exit 1
+  echo "Downloading Maven"
+  curl -o apache-maven-3.6.3-bin.tar.gz  https://apache.uib.no/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+  tar xzf apache-maven-3.6.3-bin.tar.gz
+  rm -f apache-maven-3.6.3-bin.tar.gz
+  cd - || exit 1
+fi
+
 echo Find maven
 find / -name mvn
 
 export PATH=/app/tmp/cache/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3/bin:$PATH
+export PATH=${CACHE_DIR}/apache-maven-3.6.3/bin:$PATH
 
 env | sort
 
