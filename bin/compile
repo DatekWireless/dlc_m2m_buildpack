@@ -29,6 +29,7 @@ echo "app/tmp/buildpacks"
 ls -l /app/tmp/buildpacks
 echo Find java
 find / -name java
+sudo find / -name java
 
 cd "$1" || exit 1
 pwd
