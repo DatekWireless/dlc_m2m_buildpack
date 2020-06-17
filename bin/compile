@@ -32,6 +32,8 @@ export_env_dir $ENV_DIR
 
 echo "-----> Found DatekLightControl app"
 
+env | sort
+
 echo "Cache:"
 ls -la "${CACHE_DIR}"
 
