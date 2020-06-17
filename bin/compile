@@ -20,6 +20,7 @@ export_env_dir() {
 echo "-----> Found DatekLightControl app"
 pwd
 ls -l
+cd "$1" || exit 1
 echo "Starting release script" | indent
 cd LightControl || exit 1
 ./release.rb --skip-tests
