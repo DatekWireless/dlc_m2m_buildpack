@@ -51,6 +51,7 @@ else
   cd "${CACHE_DIR}" || exit 1
   echo "Downloading Java"
   curl -o OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
+  ls -l
   tar xzf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
   rm -f OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
   cd - || exit 1
@@ -62,6 +63,7 @@ else
   cd "${CACHE_DIR}" || exit 1
   echo "Downloading Maven"
   curl -o apache-maven-3.6.3-bin.tar.gz  https://apache.uib.no/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
+  ls -l
   tar xzf apache-maven-3.6.3-bin.tar.gz
   rm -f apache-maven-3.6.3-bin.tar.gz
   cd - || exit 1
