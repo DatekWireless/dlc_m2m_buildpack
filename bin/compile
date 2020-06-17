@@ -27,9 +27,14 @@ echo "tmp/build_*"
 ls -l /tmp/build_*
 echo "app/tmp/buildpacks"
 ls -l /app/tmp/buildpacks
+
 echo Find java
 find / -name java
 sudo find / -name java
+
+echo Find maven
+find / -name mvn
+sudo find / -name mvn
 
 cd "$1" || exit 1
 pwd
