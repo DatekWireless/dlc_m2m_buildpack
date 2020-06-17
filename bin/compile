@@ -33,7 +33,7 @@ export_env_dir $ENV_DIR
 echo "-----> Found DatekLightControl app"
 
 echo "Cache:"
-ls -l "${CACHE_DIR}"
+ls -la "${CACHE_DIR}"
 
 java_dir="${CACHE_DIR}/jdk-11.0.7+10"
 if [ -d ${java_dir} ] ; then
