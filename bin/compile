@@ -30,13 +30,11 @@ ls -l /app/tmp/buildpacks
 
 echo Find java
 find / -name java
-echo Find java sudo
-sudo find / -name java
 
 echo Find maven
 find / -name mvn
-echo Find maven sudo
-sudo find / -name mvn
+
+export PATH=/app/tmp/cache/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3/bin:$PATH
 
 cd "$1" || exit 1
 pwd
