@@ -73,14 +73,17 @@ else
 fi
 export PATH="${maven_dir}/bin:$PATH"
 
-echo "${HOME}/.m2/settings.xml"
-mkdir -p ${HOME}/.m2
+m2_cache_dir="${CACHE_DIR}/.m2"
+if [ -d ${m2_cache_dir} ] ; then
+  echo ".m2 cache found"
+  cp -a ${m2_cache_dir} ${HOME}
+else
+  mkdir -p ${HOME}/.m2
+fi
+
 cp -a settings.xml ${HOME}/.m2/settings.xml
-cat ${HOME}/.m2/settings.xml
 
 cd "$1" || exit 1
-pwd
-ls -la
 echo "Starting release script" | indent
 cd LightControl || exit 1
 ./release.rb --skip-tests
@@ -97,3 +100,4 @@ chmod +x "$BUILD_DIR/.profile.d/java.sh"
 cat "$BUILD_DIR/.profile.d/java.sh"
 
 cp -a ${java_dir} $BUILD_DIR
+cp -a ${HOME}/.m2 ${m2_cache_dir}
