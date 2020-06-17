@@ -54,10 +54,11 @@ if [ -d "${CACHE_DIR}/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10" ] ; then
 else
   cd "${CACHE_DIR}" || exit 1
   echo "Downloading Java"
-  curl -L -o OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
+  java_archive="OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz"
+  curl -L -o ${java_archive} https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
   ls -l
-  tar xzf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
-  rm -f OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
+  tar xzf ${java_archive}
+  rm -f ${java_archive}
   cd - || exit 1
 fi
 
