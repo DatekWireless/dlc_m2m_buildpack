@@ -41,15 +41,10 @@ ls -l /tmp/build_*
 echo "app/tmp/buildpacks"
 ls -l /app/tmp/buildpacks
 
-set +e
-echo Find java
-find / -name java
-set -e
-
 echo "Cache:"
 ls -l "${CACHE_DIR}"
 
-if [ -d "${CACHE_DIR}/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10" ] ; then
+if [ -d "${CACHE_DIR}/jdk-11.0.7+10" ] ; then
   echo "Java found"
 else
   cd "${CACHE_DIR}" || exit 1
@@ -76,6 +71,11 @@ fi
 export PATH=${CACHE_DIR}/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10/bin:$PATH
 
 set +e
+echo Find java
+find / -name java
+set -e
+
+set +e
 echo Find maven
 find / -name mvn
 set -e
@@ -86,7 +86,6 @@ export PATH=${CACHE_DIR}/apache-maven-3.6.3/bin:$PATH
 env | sort
 
 echo "${HOME}/.m2/settings.xml"
-cat ${HOME}/.m2/settings.xml
 mkdir -p ${HOME}/.m2
 cp -a settings.xml ${HOME}/.m2/settings.xml
 cat ${HOME}/.m2/settings.xml
