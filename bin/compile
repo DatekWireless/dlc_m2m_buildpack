@@ -100,4 +100,5 @@ chmod +x "$BUILD_DIR/.profile.d/java.sh"
 cat "$BUILD_DIR/.profile.d/java.sh"
 
 cp -a ${java_dir} $BUILD_DIR
+rm -rf ${m2_cache_dir}
 cp -a ${HOME}/.m2 ${m2_cache_dir}
