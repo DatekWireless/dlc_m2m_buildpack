@@ -94,7 +94,7 @@ export PATH="\${HOME}/jdk-11.0.7+10/bin:\$PATH"
 EOF
 chmod +x "$BUILD_DIR/.profile.d/java.sh"
 cat "$BUILD_DIR/.profile.d/java.sh"
-echo "java.runtime.version=11" > system.properties
+echo "java.runtime.version=11" > "$BUILD_DIR/system.properties"
 
 rm -rf ${m2_cache_dir}
 cp -a ${HOME}/.m2 ${m2_cache_dir}
