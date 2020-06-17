@@ -28,6 +28,8 @@ echo ENV_DIR=$3
 
 set -e
 
+export_env_dir $ENV_DIR
+
 echo "-----> Found DatekLightControl app"
 pwd
 ls -l
