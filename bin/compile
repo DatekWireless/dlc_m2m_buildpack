@@ -30,10 +30,12 @@ ls -l /app/tmp/buildpacks
 
 echo Find java
 find / -name java
+echo Find java sudo
 sudo find / -name java
 
 echo Find maven
 find / -name mvn
+echo Find maven sudo
 sudo find / -name mvn
 
 cd "$1" || exit 1
