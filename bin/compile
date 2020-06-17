@@ -58,14 +58,6 @@ else
   cd - || exit 1
 fi
 export PATH="${java_dir}/bin:$PATH"
-echo "Installing profile.d script"
-mkdir -p "$BUILD_DIR/.profile.d"
-cat <<EOF > "$BUILD_DIR/.profile.d/java.sh"
-echo "Set java path"
-export PATH="\${java_dir}/bin:\$PATH"
-EOF
-chmod +x "$BUILD_DIR/.profile.d/java.sh"
-cat "$BUILD_DIR/.profile.d/java.sh"
 
 maven_dir="${CACHE_DIR}/apache-maven-3.6.3"
 if [ -d "${maven_dir}" ] ; then
@@ -81,18 +73,6 @@ else
 fi
 export PATH="${maven_dir}/bin:$PATH"
 
-set +e
-echo Find java
-find / -name java
-set -e
-
-set +e
-echo Find maven
-find / -name mvn
-set -e
-
-env | sort
-
 echo "${HOME}/.m2/settings.xml"
 mkdir -p ${HOME}/.m2
 cp -a settings.xml ${HOME}/.m2/settings.xml
@@ -104,3 +84,16 @@ ls -la
 echo "Starting release script" | indent
 cd LightControl || exit 1
 ./release.rb --skip-tests
+
+echo "Installing profile.d script"
+mkdir -p "$BUILD_DIR/.profile.d"
+cat <<EOF > "$BUILD_DIR/.profile.d/java.sh"
+env | sort
+echo "Set java path"
+export PATH="\${java_dir}/bin:\$PATH"
+export PATH="\${HOME}/jdk-11.0.7+10/bin:\$PATH"
+EOF
+chmod +x "$BUILD_DIR/.profile.d/java.sh"
+cat "$BUILD_DIR/.profile.d/java.sh"
+
+cp -a ${java_dir} $BUILD_DIR
