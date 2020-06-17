@@ -36,10 +36,12 @@ find / -name mvn
 
 export PATH=/app/tmp/cache/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3/bin:$PATH
 
-echo ${user.home}/.m2/settings.xml
-cat ${user.home}/.m2/settings.xml
-cp -a settings.xml ${user.home}/.m2/settings.xml
-cat ${user.home}/.m2/settings.xml
+env | sort
+
+echo "${HOME}/.m2/settings.xml"
+cat ${HOME}/.m2/settings.xml
+cp -a settings.xml ${HOME}/.m2/settings.xml
+cat ${HOME}/.m2/settings.xml
 
 cd "$1" || exit 1
 pwd
