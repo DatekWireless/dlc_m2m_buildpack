@@ -34,13 +34,6 @@ echo "-----> Found DatekLightControl app"
 pwd
 ls -l
 
-echo "tmp"
-ls -l /tmp/
-echo "tmp/build_*"
-ls -l /tmp/build_*
-echo "app/tmp/buildpacks"
-ls -l /app/tmp/buildpacks
-
 echo "Cache:"
 ls -l "${CACHE_DIR}"
 
