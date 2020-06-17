@@ -41,8 +41,10 @@ ls -l /tmp/build_*
 echo "app/tmp/buildpacks"
 ls -l /app/tmp/buildpacks
 
+set +e
 echo Find java
 find / -name java
+set -e
 
 echo "Cache:"
 ls -l "${CACHE_DIR}"
@@ -72,8 +74,10 @@ else
 fi
 export PATH=${CACHE_DIR}/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10/bin:$PATH
 
+set +e
 echo Find maven
 find / -name mvn
+set -e
 
 export PATH=/app/tmp/cache/.m2/wrapper/dists/apache-maven-3.6.3-bin/1iopthnavndlasol9gbrbg6bf2/apache-maven-3.6.3/bin:$PATH
 export PATH=${CACHE_DIR}/apache-maven-3.6.3/bin:$PATH
