@@ -26,6 +26,7 @@ echo BUILD_DIR=$1
 echo CACHE_DIR=$2
 echo ENV_DIR=$3
 
+set -e
 
 echo "-----> Found DatekLightControl app"
 pwd
@@ -45,7 +46,7 @@ echo "Cache:"
 ls -l "${CACHE_DIR}"
 
 if [ -d "${CACHE_DIR}/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10" ] ; then
-  echo "Maven found"
+  echo "Java found"
 else
   cd "${CACHE_DIR}" || exit 1
   echo "Downloading Java"
