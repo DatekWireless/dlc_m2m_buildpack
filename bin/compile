@@ -44,6 +44,17 @@ find / -name java
 echo "Cache:"
 ls -l "${CACHE_DIR}"
 
+if [ -d "${CACHE_DIR}/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10" ] ; then
+  echo "Maven found"
+else
+  cd "${CACHE_DIR}" || exit 1
+  echo "Downloading Java"
+  curl -o OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz https://github.com/AdoptOpenJDK/openjdk11-binaries/releases/download/jdk-11.0.7%2B10/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
+  tar xzf OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
+  rm -f OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10.tar.gz
+  cd - || exit 1
+fi
+
 if [ -d "${CACHE_DIR}/apache-maven-3.6.3" ] ; then
   echo "Maven found"
 else
@@ -54,6 +65,7 @@ else
   rm -f apache-maven-3.6.3-bin.tar.gz
   cd - || exit 1
 fi
+export PATH=${CACHE_DIR}/OpenJDK11U-jdk_x64_linux_hotspot_11.0.7_10/bin:$PATH
 
 echo Find maven
 find / -name mvn
