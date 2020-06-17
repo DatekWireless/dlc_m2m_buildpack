@@ -37,6 +37,16 @@ env | sort
 echo "Cache:"
 ls -la "${CACHE_DIR}"
 
+BP_JVM_VERSION=11
+JVM_BUILDPACK_URL="https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku/jvm.tgz"
+mkdir -p /tmp/jvm-common
+curl --silent --location $JVM_BUILDPACK_URL | tar xzm -C /tmp/jvm-common --strip-components=1
+source /tmp/jvm-common/bin/util
+source /tmp/jvm-common/bin/java
+
+install_java_with_overlay ${BUILD_DIR}
+
+
 java_dir="${CACHE_DIR}/jdk-11.0.7+10"
 if [ -d ${java_dir} ] ; then
   echo "Java found"
