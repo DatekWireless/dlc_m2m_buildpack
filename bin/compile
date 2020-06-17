@@ -85,6 +85,7 @@ cd LightControl || exit 1
 echo "Installing profile.d script"
 mkdir -p "$BUILD_DIR/.profile.d"
 cat <<EOF > "$BUILD_DIR/.profile.d/java.sh"
+echo "Running .profile.d/java.sh"
 env | sort
 pwd
 ls -la
