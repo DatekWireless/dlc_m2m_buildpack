@@ -42,6 +42,7 @@ JVM_BUILDPACK_URL="https://buildpack-registry.s3.amazonaws.com/buildpacks/heroku
 mkdir -p /tmp/jvm-common
 #curl --silent --location $JVM_BUILDPACK_URL | tar xzm -C /tmp/jvm-common --strip-components=1
 curl --location $JVM_BUILDPACK_URL | tar xzm -C /tmp/jvm-common --strip-components=1
+ll /tmp/jvm-common
 source /tmp/jvm-common/bin/util
 source /tmp/jvm-common/bin/java
 
