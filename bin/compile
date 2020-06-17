@@ -50,7 +50,8 @@ else
   rm -f ${java_archive}
   cd - || exit 1
 fi
-export PATH="${java_dir}/bin:$PATH"
+export JAVA_HOME="${java_dir}"
+export PATH="${JAVA_HOME}/bin:$PATH"
 
 maven_dir="${CACHE_DIR}/apache-maven-3.6.3"
 if [ -d "${maven_dir}" ] ; then
