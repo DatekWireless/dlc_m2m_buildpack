@@ -5,5 +5,5 @@ cat << EOF
 addons:
   - heroku-postgresql
 default_process_types:
-  web: java -jar LightControl/target/LightControl.jar
+  web: java -jar LightControl/target/LightControl.jar --server.port=$PORT
 EOF
